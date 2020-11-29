@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Whats GROWING ON - Edit Plants</title>
+</head>
+
+<body>
+    <header>
+        <%- include('../nav.ejs') %>
+    </header>
+    <h1>Update Garden Plants</h1>
+    <form action="/plants/<%= plant._id %>?_method=PUT" method="POST" autocomplete="off">
+        <label for="pname">Plant Name:</label>
+        <input type="text" name="pname" placeholder="<%= plant.name %>"><br>
+        <label for="dplanted">Date Planted:</label>
+        <input type="month" name="dplanted" placeholder="<%= plant.date %>"><br>
+        <label for="hdate">Harvest Date:</label>
+        <input type="month" name="hdate" placeholder="<%= plant.harvest %>"><br>
+        <label for="sun">Sun: Full - Partial - None:</label>
+        <input type="text" name="sun" placeholder="<%= plant.sun %>"><br>
+        <label for="notes">Notes:</label>
+        <input type="text" name="notes" placeholder="<%= plant.notes %>"><br>
+        <button type="submit">Save Plant to Garden</button>
+    </form>
+   
+</body>
+
+</html>

@@ -13,10 +13,11 @@
         <%- include('../nav.ejs') %>
     </header>
     <div style="padding-left:20px">
-        <form action="/users/signup" method="post">
-            Username: <input type="text" name="username"><br>
-            Password: <input type="password" name="password"><br>
-            <input type="submit" value="Sign Up!">
+        <h1>Signup</h1>
+        <form action="/users/signup" method="POST">
+            Username: <input type="text" name="username" /><br />
+            Password: <input type="password" name="password" /><br />
+            <input type="submit" value="Signup" />
         </form>
     </div>
 </body>
