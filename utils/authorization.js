@@ -1,5 +1,4 @@
 // require the user model
-const user = require('../models/user');
 const User = require('../models/user');
 // module.exports
 
@@ -12,6 +11,7 @@ module.exports = {
 // a function to add the user to a property called user on the request object
 // aka req.user
 function addUserToRequest(req, res, next) {
+    if(req.user) return next();
     if(req.session && req.session.userId) {
         User.findById(req.session.userId, function(err, foundUser){
             req.user = foundUser;

@@ -11,27 +11,40 @@
 
 <body>
     <header>
-        <%- include('../nav.ejs') %>
+        <%- include('../usernav.ejs') %>
     </header>
     <div class="container">
-        <% plants.forEach(function(plant) { %>
         <div class="card">
-            <div class="title">
-                <h3>Plant Name: <%= plant.name %></h3>
-            </div>
-            <div class="circle">🌞</div>
-            <div class="content">
-                <h6>Date Planted: <%= plant.date %></h6>
-                <h6>Harvest Date: <%= plant.harvest %></h6>
-                <h6>Partial or Full Sun: <%= plant.sun %></h6>
-                <h6>Notes: <%= plant.notes %></h6>
-                <a href="/plants/<%= plant._id %>/edit">Edit Plant</a>
-                <a href="/plants/<%= plant._id %>?_method=DELETE" class="delete-form" method="POST">Delete Plant</a>
-                </div>
-            <% }) %>
+        <table>
+            <thead>
+                <th>Delete</th>
+                <th>Edit</th>
+                <th>Plant</th>
+                <th>Planted</th>
+                <th>Harvest</th>
+                <th>Sun</th>
+                <th>Notes</th>
+            </thead>
+            <tbody>
+            <% plants.forEach(function(plant) { %>
+                <tr>
+                    <td>
+                            <form action="/plants/<%= plant._id %>?_method=DELETE" class="delete-form" method="POST">
+                                <button type="submit">X</button>
+                            </form>
+                        </td>
+                        <td><a href="/plants/<%= plant._id %>/edit">Edit</a></td>
+                        <td><%= plant.name %></td>
+                        <td><%= plant.date %></td>
+                        <td><%= plant.harvest %></td>
+                        <td><%= plant.sun %></td>
+                        <td><%= plant.notes %></td>
+                    </tr>
+                </tbody>
+                <% }) %>
+            </table>
         </div>
     </div>
-
 </body>
 
 </html>

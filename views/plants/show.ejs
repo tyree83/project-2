@@ -10,21 +10,17 @@
 
 <body>
     <header>
-        <%- include('../nav.ejs') %>
+        <%- include('../usernav.ejs') %>
     </header>
     <div class="container">
         <div class="card">
             <form action="/plants" method="post">
-                <div class="title">
                     <input type="text" name="name"><br>
-                </div>
-                <div class="content">
                     <input type="month" name="date"><br>
                     <input type="month" name="harvest"><br>
                     <input type="text" name="sun"><br>
                     <input type="text" name="notes"><br>
                     <input type="submit" value="Add Plant">
-                </div>
             </form>
         </div>
     </div>

@@ -1,7 +1,6 @@
 const Plant = require('../models/plant.js')
 
 
-
 function index(req, res) {
   Plant.find({}, function (err, plants) {
     res.render('plants/index', { plants });
@@ -35,9 +34,25 @@ function edit(req, res) {
 }
 
 function deletePlant(req, res) {
-  Plant.findByIdAndDelete(req.params.id, function (err, plant) {
-    res.redirect('/plants')
-  });
+  Plant.findById(req.params.id, function (err, plant) {
+    plant.remove()
+    plant.save(function (err) {
+        res.redirect('/plants')
+    })
+})
+}
+
+function update(req, res) {
+  Plant.findById(req.params.id, function (err, plant) {
+      plant.name = req.body.name
+      plant.date = req.body.date
+      plant.harvest = req.body.harvest
+      plant.sun = req.body.sun
+      plant.notes = req.body.notes
+      plant.save(function (err) {
+          res.redirect('/plants')
+      })
+  })
 }
 
 module.exports = {
@@ -46,15 +61,9 @@ module.exports = {
   create,
   show,
   edit,
+  update,
   delete: deletePlant
-};
-
-
-// function update(req, res) {
-//   Plant.findByIdAndUpdate(req.params.id, req.body, function (err, plant) {
-//     res.redirect('/plants')
-//   });
-// }
+};  
 
 
 

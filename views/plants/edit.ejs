@@ -10,23 +10,32 @@
 
 <body>
     <header>
-        <%- include('../nav.ejs') %>
+        <%- include('../usernav.ejs') %>
     </header>
-    <h1>Update Garden Plants</h1>
     <form action="/plants/<%= plant._id %>?_method=PUT" method="POST" autocomplete="off">
-        <label for="pname">Plant Name:</label>
-        <input type="text" name="pname" placeholder="<%= plant.name %>"><br>
-        <label for="dplanted">Date Planted:</label>
-        <input type="month" name="dplanted" placeholder="<%= plant.date %>"><br>
-        <label for="hdate">Harvest Date:</label>
-        <input type="month" name="hdate" placeholder="<%= plant.harvest %>"><br>
-        <label for="sun">Sun: Full - Partial - None:</label>
-        <input type="text" name="sun" placeholder="<%= plant.sun %>"><br>
-        <label for="notes">Notes:</label>
-        <input type="text" name="notes" placeholder="<%= plant.notes %>"><br>
-        <button type="submit">Save Plant to Garden</button>
+        <div class="container">
+            <div class="card">
+                <form >
+                    <fieldset>
+                        <legend>Edit Plant Below</legend>
+                        <label>Plant Name:</label>
+                            <input type="text" name="name" placeholder="<%= plant.name %>"><br>
+                        <label>Date Planted:</label>
+                            <input type="month" name="date" placeholder="<%= plant.date %>"><br>
+                        <label>Harvest Date:</label>
+                            <input type="month" name="harvest" placeholder="<%= plant.harvest %>"><br>
+                        <label>Sun: Full - Partial - None:</label>
+                            <input type="text" name="sun" placeholder="<%= plant.sun %>"><br>
+                        <label>Notes:
+                            <input type="text" name="notes" placeholder="<%= plant.notes %>"><br>
+                        </label>
+                    </fieldset>
+                    <input name="text" type="submit" value="Update">
+                </form>
+            </div>
+        </div>
     </form>
-   
 </body>
 
 </html>
+

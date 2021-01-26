@@ -4,20 +4,20 @@ const router = express.Router();
 const plantsCtrl = require('../controllers/plants');
 
 // routes go here
-router.get('/', plantsCtrl.index);
-// add new plant
-router.get('/new', plantsCtrl.new);
 // add new plant
 router.post('/', plantsCtrl.create);
+// add new plant
+router.get('/new', plantsCtrl.new);
 
 router.get('/:id', plantsCtrl.show);
 
 router.delete('/:id', plantsCtrl.delete);
 
+router.put('/:id/', plantsCtrl.update);
+
 router.get('/:id/edit', plantsCtrl.edit);
 
-// router.put('/:id/', plantsCtrl.update);
-
+router.get('/', plantsCtrl.index);
 
 
 
