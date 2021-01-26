@@ -49,7 +49,7 @@ function login(req, res) {
                 //    add the user to a new session
                 req.session.userId = foundUser._id;
                 //   redirect to a secure location 
-                res.redirect('/plants');
+                res.redirect('/plants/index');
             } else {
                 // if the password is wrong - redirect back to login
                 res.redirect('/users/signin');
